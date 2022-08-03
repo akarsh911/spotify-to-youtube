@@ -1,0 +1,4 @@
+Work on UX/Ui of the system
+Start a Git respository
+work on security and encryption decryption
+Add the system to store multiple client ids

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+    <head>
+          <title>Spotify Playlist Converter</title>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="icon" type="image/x-icon" href="/media/favicon.ico">
+          <script src="/javascript/home_page.js"></script>
+          <link rel="preload" href="http://localhost/media/loading.gif" as="image"/>
+          <link rel="preload" href="http://localhost/css/code_handler.css" />
+          <link rel="preload" href="http://localhost/html/code_handler.html" />
+          <link rel="prefetch" href="http://localhost/javascript/code_handler.js" />
+          
+    </head>
+    <body>
+        <style>
+            /* Style the body */
+            body {
+                background: #1abc9c ;
+              background-image: url('/media/back.svg') ;
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-position: right;
+                background-size: stretch;
+                font-family:  Arial, Helvetica, sans-serif;
+              margin: 0;
+            }
+            
+            /* Header/Logo Title */
+            .preheader {
+                bottom: 0;
+              height:5vh;
+              text-align: center;
+              
+              color: white;
+              padding-right:5%;
+              font-size: 18px;
+              
+            }
+            .header {
+              height: 95vh;
+              padding: 5%;
+              text-align: center;
+             
+              color: white;
+              font-size: 21px;
+              padding-bottom:0%;
+              padding-top:0%;
+            }
+            .logo{
+               height: 80px;   
+            }
+            .footer_link{
+                margin-left:5%;
+                color: white
+            }
+            .notice{
+                height: 5vh;
+            }
+            .input_box{
+                width:80%;
+                max-width: 500px;
+                height:5vh;
+                border:30;
+                border-color: rgba(255, 129, 2, 0.962);
+                color: black;
+                padding: auto;
+                padding-left:2%;
+               
+            }
+            .submit_button{
+                max-width: 100px;
+                width:15%;
+                height:5vh;
+                font-size:medium;
+                background-color: rgba(255, 129, 2, 0.962);
+                color:white;
+                padding: auto;
+            
+            }
+            .submit_button:hover{
+                background-color: rgba(255, 129, 2, 0.722);
+                cursor:pointer;
+            }
+            /* Page Content */
+          
+            .req{
+                font-size: 16px;
+                background: #1abc9c;
+                width:fit-content;
+                display:inline-block;
+                color: black;
+            }
+            .form_holder{
+                text-align: center;
+            }
+            @media screen and (max-width: 500px) {
+              
+                .header {
+                    font-size:16px;
+                }
+                .logo{
+                    height: 60px;
+                }
+                .submit_button{
+                    width:40%;
+                    margin-top: 5%;
+                }
+                .preheader{
+                    font-size:15px;
+                }
+                .input_box{
+                    width:95%;
+                }
+            
+            }
+            
+            </style>
+         <div class="header">
+        <div class="notice"></div>
+        <img class="logo"src="/media/logo.png" alt="logo">
+      <h1>Spotify to Youtube</h1>
+      <p>Use this tool to convert spotify playlists into youtube playlists</p>
+      <div class="form_holder">
+      <form method="post" action="javascript:void(0);" onsubmit="get_form_data()" id="spotify_url_form">
+        <input class="input_box" type="url" name="spotify_url" id="spotify_url" placeholder="playlist url here" required>
+        <input class="submit_button" type="submit">
+    </form>
+    <br>
+    <div class="notif">
+    <li class="req">This app might require sign in with Spotify to fetch songs</li>
+    <br><li class="req">This app might require sign in with google/youtube to create playlists</li>
+    </div>
+    </div>
+    </div>
+    
+    <div class="preheader" >
+        
+        <a class="footer_link" href="http://localhost/about">About</a>
+        <a class="footer_link" href="http://localhost/about">Contact</a>
+        <a class="footer_link" href="http://localhost/about">Faq's</a>
+        <a class="footer_link" href="http://localhost/about">Privacy</a></div>
+    </body>
+</html>
