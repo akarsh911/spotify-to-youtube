@@ -1,0 +1,59 @@
+<html>
+     
+    <button onClick="start();">start</button>
+    <iframe id="0"></iframe>
+    <script>
+          var audio1 = new Audio('/media/beep (1).mp3');
+
+        var previous="";var link="";var i=0;
+        function playlist_creater()
+{
+
+    //link=window.frames[0].document.body.innerHTML ;
+    fetch('https://admission.thapar.edu/', {
+  mode: 'no-cors',
+  headers: {
+    'Access-Control-Allow-Origin':'*'
+  }
+})
+.then(function (response) {
+	// The API call was successful!
+	return response.json();
+}).then(function (data) {
+	// This is the JSON from our response
+    link=data;
+	console.log(data);
+}).catch(function (err) {
+	// There was an error
+	console.warn('Something went wrong.', err);
+});
+
+  
+    console.log(link);
+    return;
+}
+
+function start(){
+    if(i==0)
+    {
+    playlist_creater();var audio = new Audio('/media/beep (1).mp3');
+audio.play();}
+if(previous==link)
+{
+    prvious=link;
+    link="";
+  
+audio1.play();
+//document.getElementById('0').src="https://admission.thapar.edu/";
+    setTimeout(playlist_creater, 10000);
+}
+else{
+    var audio = new Audio('/media/beep (2).mp3');
+audio.play();
+
+}
+i++;}
+
+
+    </script>
+</html>
