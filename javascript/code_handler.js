@@ -1,3 +1,4 @@
+var list=0;var access_token;
 if(window.location.search.length>0)
         {
             let error=getError();
@@ -5,7 +6,7 @@ if(window.location.search.length>0)
             {window.location.href="http://localhost";}
             else
             {
-                
+             
                 handelRedirect();
             }
         }
@@ -82,9 +83,7 @@ if(window.location.search.length>0)
       {
         if(this.status==200)
         {
-            console.log(this.responseText);
             var data= JSON.parse(this.responseText);
-            console.log(data);
             if(data.access_token!=undefined)
             {
                 localStorage.setItem("access_token",data.access_token) ;
@@ -96,11 +95,12 @@ if(window.location.search.length>0)
             let body="limit=50";
             var playlist_url=getCookie  ("playlist_url");
             var call_url="https://api.spotify.com/v1/playlists/"+playlist_url;
+         
                 callApi(body,"GET",handelapiresponse,call_url);
         }
         else
         {
-            console.log(this.responseText);
+        
             alert(this.responseText);
         }
       }
@@ -138,11 +138,40 @@ if(window.location.search.length>0)
    {
        if(this.status==200)
        {
-           console.log(this.responseText);
-          
-           sessionStorage.setItem('songs',this.responseText);
-           location.replace('http://localhost/songs');
-           window.location.href="http://localhost/songs";
+
+           var data=JSON.parse(this.response);
+           console.log(list+"=====>"+data);
+           sessionStorage.setItem('songs'+list,this.responseText);
+           /*
+           if(list==0)
+           {
+           
+            if(data.tracks.next!=null&&data.tracks.next!=undefined)
+            {
+             let body="limit=50";           
+                 list++;
+                 call_url=data.tracks.next;
+                 callApi(body,"GET",handelapiresponse,call_url);
+            }
+           else{
+            location.replace('http://localhost/songs');
+         }
+           }
+           else{
+            if(data.next!=null&&data.next!=undefined)
+            {
+             let body="limit=50";
+                 list++;
+                 call_url=data.next;
+                 callApi(body,"GET",handelapiresponse,call_url);
+            }
+           else{
+            location.replace('http://localhost/songs');
+         }
+
+         
+           }*///remove above code commenting and make it live for more than 100 songs (for premium users)
+           location.replace('http://localhost/songs');//remove this line for premium users
    }
 
    else if(this.status==401){
@@ -151,7 +180,6 @@ if(window.location.search.length>0)
    }
    else 
    {
-       console.log(this.responseText);
        window.location.href="http://localhost";
    }
 }

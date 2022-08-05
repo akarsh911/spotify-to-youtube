@@ -1,6 +1,6 @@
 let acess=null;var loader = document.getElementById("loader");
-alert(sessionStorage.getItem("playlist"));
-if(sessionStorage.getItem("playlist")!=null)
+
+if(true)
 {
 
 var text = window.location.hash;
@@ -49,10 +49,10 @@ var index=1;
 var allsongs= JSON.parse(sessionStorage.getItem("arraysongs"));
 add_video(id,index,allsongs);}
 else{
-  var divlink=document.getElementById("link");
-  divlink.value=sessionStorage.setItem("playlist",link);;
+  //var divlink=document.getElementById("link");
+  //divlink.value=sessionStorage.setItem("playlist",link);;
   
-loader.classList.add("inv");
+ //loader.classList.add("inv");
 
 }
 function add_video()
